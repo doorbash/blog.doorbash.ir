@@ -9,7 +9,7 @@ paginate = 6
   builtBy = "bool"
   defaultImage = "gopher.jpg"
 
-  facebook = ""
+  facebook = "https://www.facebook.com/milad.doorbash"
   quora = ""
   twitter = "https://twitter.com/doorbash"
   github = "https://github.com/doorbash/blog.doorbash.ir"
@@ -20,7 +20,7 @@ paginate = 6
   fbPageUrl = ""
   fbPageTitle = ""
 
-  analytics = ""
+  analytics = "UA-128176167-2"
   disqus = "doorbash-ir"
 
   [params.copyright]
