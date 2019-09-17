@@ -104,7 +104,7 @@ dd if=/dev/zero of=/dev/block/platform/msm_sdcc.1/by-name/misc{{< /code >}}
 
 {{<link "https://forum.xda-developers.com/lg-g2/orig-development/rom-lineageos-15-alpha-d802-t3707239">}}
 
-<h3>نحوه رفتن به ریکاوری از حالت خاموش:</h3>
+<h4>نحوه رفتن به ریکاوری از حالت خاموش:</h4>
 <ol>
 <li>دکمه ولوم پایین + پاور رو میگیریم.</li>
 
@@ -112,7 +112,7 @@ dd if=/dev/zero of=/dev/block/platform/msm_sdcc.1/by-name/misc{{< /code >}}
 
 <li>3-یس میزنیم دوبار و بعدش وارد ریکاوری میشه</li>
 </ol>
-<h3>نحوه رفتن به حالت دانلود :</h3>
+<h4>نحوه رفتن به حالت دانلود :</h4>
 
 از حالت خاموش دکمه ولوم بالا رو میگیریم. سپس کابل یو اس بی که اون سرش به کامپیوتر وصل شده رو به گوشی وصل میکنیم.و بعد پاور رو میگیریم
 
