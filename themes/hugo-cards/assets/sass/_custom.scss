@@ -1,0 +1,40 @@
+.pagination {
+	display: flex;
+	justify-content: center;
+}
+
+.panel-body {
+	padding-top: 10px;
+	direction: rtl;
+}
+
+.panel-title {
+	direction: rtl;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar {
+	font-family: $base-font-family;
+}
+
+.block-code {
+    position: relative;
+    display: block;
+    font-family: sans-serif;
+    background-color: rgba(0,0,0,.05);
+    font-size: 16px;
+    padding: 5px 20px !important;
+	direction: ltr;
+	white-space: pre-line
+}
+
+._ltr {
+	direction: ltr;
+}
+
+.post-meta {
+	direction: rtl;
+}
+
+ol {
+    line-height: 1.8;
+}

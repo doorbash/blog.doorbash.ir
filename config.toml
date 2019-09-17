@@ -1,0 +1,30 @@
+baseurl = "http://doorbash.ir/blog/"
+languageCode = "en-us"
+title = "بلاگ - میلاد دورباش"
+theme = "hugo-cards"
+paginate = 6
+
+[params]
+  parent = "http://doorbash.ir/"
+  parentName = "میلاد دورباش"
+  builtBy = "bool"
+  defaultImage = "gopher.jpg"
+
+  facebook = ""
+  quora = ""
+  twitter = "http://twitter.com/doorbash"
+  github = "http://github.com/doorbash"
+  email = "milad.doorbash@gmail.com"
+
+  fbLikeBox = ""
+  fbAppId = ""
+  fbPageUrl = ""
+  fbPageTitle = ""
+
+  analytics = ""
+  disqus = "doorbash-ir"
+
+  [params.copyright]
+     name = "میلاد دورباش"
+     link = "http://doorbash.ir"
+
