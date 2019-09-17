@@ -5,7 +5,6 @@ theme = "hugo-cards"
 paginate = 6
 
 [params]
-  parentName = "میلاد دورباش"
   builtBy = "bool"
   defaultImage = "gopher.jpg"
 
