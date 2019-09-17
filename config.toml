@@ -5,15 +5,14 @@ theme = "hugo-cards"
 paginate = 6
 
 [params]
-  parent = "http://doorbash.ir/"
   parentName = "میلاد دورباش"
   builtBy = "bool"
   defaultImage = "gopher.jpg"
 
   facebook = ""
   quora = ""
-  twitter = "http://twitter.com/doorbash"
-  github = "http://github.com/doorbash"
+  twitter = "https://twitter.com/doorbash"
+  github = "https://github.com/doorbash/blog.doorbash.ir"
   email = "milad.doorbash@gmail.com"
 
   fbLikeBox = ""
