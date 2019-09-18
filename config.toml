@@ -20,7 +20,7 @@ paginate = 6
   fbPageTitle = ""
 
   analytics = "UA-128176167-2"
-  disqus = "doorbash-ir"
+  disqus = "doorbash-github-io"
 
   [params.copyright]
      name = "میلاد دورباش"
