@@ -4,6 +4,9 @@ title = "بلاگ - میلاد دورباش"
 theme = "hugo-cards"
 paginate = 6
 
+[markup.goldmark.renderer]
+unsafe= true
+
 [params]
   builtBy = "bool"
   defaultImage = "gopher.jpg"
