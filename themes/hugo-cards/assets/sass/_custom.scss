@@ -12,6 +12,10 @@
 	direction: rtl;
 }
 
+a {
+	overflow-wrap: break-word;
+}
+
 h1, h2, h3, h4, h5, h6, .navbar {
 	font-family: $base-font-family;
 	margin-top: 6px
