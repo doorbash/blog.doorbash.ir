@@ -12,13 +12,17 @@
 	direction: rtl;
 }
 
+a {
+	overflow-wrap: break-word;
+}
+
 h1, h2, h3, h4, h5, h6, .navbar {
 	font-family: $base-font-family;
 	margin-top: 6px
 }
 
 .block-code {
-	overflow-x: scroll;
+	overflow-x: auto;
     position: relative;
     display: block;
     font-family: sans-serif;
@@ -27,19 +31,6 @@ h1, h2, h3, h4, h5, h6, .navbar {
     padding: 5px 20px !important;
 	direction: ltr;
 	white-space: pre;
-}
-
-.disable-scrollbars::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-    /* Chrome/Safari/Webkit */
-}
-
-.disable-scrollbars {
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE 10+ */
 }
 
 .inline-code {
