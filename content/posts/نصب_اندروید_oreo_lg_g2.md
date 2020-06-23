@@ -39,12 +39,15 @@ date: 2018-10-01
 
 حالا اسکریپت تو خط Looking for LG serial port.. میمونه و جلوتر نمیره. حالا باید گوشی رو دستی به حالت دانلود مود ببریم . برای اینکار کابل USB رو قطع میکنیم گوشی رو خاموش میکنیم. دکمه ولوم بالا رو میگیریم و کابل USB رو وصل میکنیم. بعدش خط دوم تا جایی که نوشته :
 
-{{< code >}}echo Rebooting into Download mode..{{< /code >}}
+```Batchfile
+echo Rebooting into Download mode..
+```
 
 رو پاک میکنیم تا اسکریپت به این شکل در بیاد:
-{{< code >}}@echo off
+```Batchfile
+@echo off
 Send_Command.exe \\.\%comPath% < enterDownload | echo off
-{{< /code >}}
+```
 
 حالا دوباره اجراش میکنیم و گوشی روت میشه. اگر ریستارت نشد خودمون ریستارتش میکنیم و با برنامهAuto Rec ریکاوری TWRP رو نصب می کنیم: (فایل مخصوص d802 هست)
 
@@ -52,8 +55,9 @@ Send_Command.exe \\.\%comPath% < enterDownload | echo off
 
 حالا با دستور زیر میریم تو حالت ریکاوری:
 
-{{< code >}}adb reboot recovery
-{{< /code >}}
+```Bash
+adb reboot recovery
+```
 
 نسخه TWRP الان 2.8.6.1 هست. نسخه جدیدتر رو دانلود میکنیم از اینجا: (فایل مخصوص d802 هست)
 
@@ -95,8 +99,10 @@ Send_Command.exe \\.\%comPath% < enterDownload | echo off
 
 اگه فایده نداشت این دستورات رو با adb shell میزنیم:
 
-{{< code >}}dd if=/dev/block/platform/msm_sdcc.1/by-name/misc of=/sdcard/miscBU.img
-dd if=/dev/zero of=/dev/block/platform/msm_sdcc.1/by-name/misc{{< /code >}}
+```Bash
+dd if=/dev/block/platform/msm_sdcc.1/by-name/misc of=/sdcard/miscBU.img
+dd if=/dev/zero of=/dev/block/platform/msm_sdcc.1/by-name/misc
+```
 
 نصب انجام شد. روی سیستم بوت میکنیم و تمام.
 
@@ -104,15 +110,13 @@ dd if=/dev/zero of=/dev/block/platform/msm_sdcc.1/by-name/misc{{< /code >}}
 
 {{<link "https://forum.xda-developers.com/lg-g2/orig-development/rom-lineageos-15-alpha-d802-t3707239">}}
 
-<h4>نحوه رفتن به ریکاوری از حالت خاموش:</h4>
-<ol>
-<li>دکمه ولوم پایین + پاور رو میگیریم.</li>
+#### نحوه رفتن به ریکاوری از حالت خاموش:
+دکمه ولوم پایین + پاور رو میگیریم.
 
-<li>وقتی لوگوی الجی اومد ول میکنیم دوباره ولوم پایین + پاور میگیریم (بعضی وقتام اگه نشد ولوم پایین + ولوم بالا)</li>
+وقتی لوگوی الجی اومد ول میکنیم دوباره ولوم پایین + پاور میگیریم (بعضی وقتام اگه نشد ولوم پایین + ولوم بالا)
 
-<li>یس میزنیم دوبار و بعدش وارد ریکاوری میشه</li>
-</ol>
-<h4>نحوه رفتن به حالت دانلود :</h4>
+یس میزنیم دوبار و بعدش وارد ریکاوری میشه
+#### نحوه رفتن به حالت دانلود :
 
 از حالت خاموش دکمه ولوم بالا رو میگیریم. سپس کابل یو اس بی که اون سرش به کامپیوتر وصل شده رو به گوشی وصل میکنیم.و بعد پاور رو میگیریم
 

@@ -4,8 +4,11 @@ title = "بلاگ - میلاد دورباش"
 theme = "hugo-cards"
 paginate = 6
 
-[markup.goldmark.renderer]
-unsafe= true
+#[markup.goldmark.renderer]
+#unsafe= true
+
+pygmentsCodefences = true
+pygmentsStyle = "github"
 
 [params]
   builtBy = "bool"

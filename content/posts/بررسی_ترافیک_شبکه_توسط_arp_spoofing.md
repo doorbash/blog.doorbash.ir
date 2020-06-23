@@ -10,40 +10,46 @@ date: 2020-06-22
 و ما پکت ها رو میگیریم و فوروارد میکنیم برای طرف دیگه و این وسط یه نگاهی هم بهشون میندازیم.
 
 نصب pcap
-{{< code >}}Windows: Download and install npcap 0.99* from https://nmap.org/download.html
+```Bash
+Windows: Download and install npcap 0.99* from https://nmap.org/download.html
 Ubuntu: sudo apt install libpcap0.8-dev
-{{< /code >}}
+````
 
 فعال کردن Packet Forwarding
-{{< code >}}Windows: https://serverfault.com/questions/929081/how-can-i-enable-packet-forwarding-on-windows
+```Bash
+Windows: https://serverfault.com/questions/929081/how-can-i-enable-packet-forwarding-on-windows
 Linux: echo 1 > /proc/sys/net/ipv4/ip_forward
-{{< /code >}}
+```
 
 دانلود {{<inline_code "arp-spoof.go">}} از اینجا:
 {{<link "https://git.io/JfxCx">}}
 
 اجرای کد
-{{< code >}}go build
+```Bash
+go build
 arp-spoof deviceIP routerIP. Example: arp-spoof 192.168.1.12 192.168.1.1
-{{< /code >}}
+```
 
-نصب Wireshark
+نصب Wireshark:
 {{<link "https://www.wireshark.org/">}}
 
 Wireshark را اجرا کنید. اینترفیس (مثلا وای‌فای) را انتخاب کنید تا شروع به کپچر کند.
 
 حالا مثلا برای گرفتن ترافیک http از آی‌پی موردنظر این فیلتر را وارد میکنیم:
-{{< code >}}http and ip.addr eq 192.168.1.12{{< /code >}}
+```Bash
+http and ip.addr eq 192.168.1.12
+```
 
 من روی تلویزیون خونه امتحان کردم و ترافیک زیر رو گرفتم:
 {{<image src="wireshark_traffic.png" alt="Wireshark traffic">}}
 
 {{<image src="wireshark_traffic_2.png" alt="Wireshark traffic 2">}}
 
-<br>
-<br>
-<h4>اضافه:</h4>
+&nbsp;&nbsp;
+#### اضافه:
 
 برای بدست آوردن آی‌پی دستگاه های روی شبکه میشه این کارو کرد:
 
-{{< code >}}nmap -sP 192.168.1.0/24{{< /code >}}
+```Bash
+nmap -sP 192.168.1.0/24
+```
