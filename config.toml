@@ -14,10 +14,7 @@ pygmentsStyle = "github"
   builtBy = "bool"
   defaultImage = "gopher.jpg"
 
-  facebook = "https://www.facebook.com/milad.doorbash"
-  quora = ""
-  twitter = "https://twitter.com/doorbash"
-  github = "https://github.com/doorbash/blog.doorbash.ir"
+  github = "https://github.com/doorbash"
   email = "milad.doorbash@gmail.com"
 
   fbLikeBox = ""
