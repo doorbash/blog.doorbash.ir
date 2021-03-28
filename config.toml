@@ -2,7 +2,7 @@ baseurl = "https://doorbash.github.io/blog/"
 languageCode = "en-us"
 title = "بلاگ - میلاد دورباش"
 theme = "hugo-cards"
-paginate = 6
+paginate = 9
 
 #[markup.goldmark.renderer]
 #unsafe= true
