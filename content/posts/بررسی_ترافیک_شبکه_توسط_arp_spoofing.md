@@ -9,13 +9,13 @@ date: 2020-06-22
 کاری که میکنیم اینه که میایم به اون دستگاه میگیم آی‌پی روتر (همون مودم مثلا) مال منه! و به روتر میگیم آی‌پی دستگاه مال منه! و اینها بجای اینکه بیان پکت ها رو برای همدیگه بفرستن برای ما میفرستن اشتباهی.
 و ما پکت ها رو میگیریم و فوروارد میکنیم برای طرف دیگه و این وسط یه نگاهی هم بهشون میندازیم.
 
-نصب pcap
+**نصب pcap**
 ```Bash
 Windows: Download and install npcap 0.99* from https://nmap.org/download.html
 Ubuntu: sudo apt install libpcap0.8-dev
 ````
 
-فعال کردن Packet Forwarding
+**فعال کردن Packet Forwarding**
 ```Bash
 Windows: https://serverfault.com/questions/929081/how-can-i-enable-packet-forwarding-on-windows
 Linux: echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -24,13 +24,13 @@ Linux: echo 1 > /proc/sys/net/ipv4/ip_forward
 دانلود {{<inline_code "arp-spoof.go">}} از اینجا:
 {{<link "https://git.io/JfxCx">}}
 
-اجرای کد
+**اجرای کد**
 ```Bash
 go build
 arp-spoof deviceIP routerIP. Example: arp-spoof 192.168.1.12 192.168.1.1
 ```
 
-نصب Wireshark:
+**نصب Wireshark:**
 {{<link "https://www.wireshark.org/">}}
 
 Wireshark را اجرا کنید. اینترفیس (مثلا وای‌فای) را انتخاب کنید تا شروع به کپچر کند.
