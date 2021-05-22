@@ -5,9 +5,9 @@ img: solitaire.jpg
 date: 2021-05-21
 ---
 
-تو این پست میخام در مورد تجربه ای که از ساخت بازی ساده Solitaire Klondike داشتم صحبت کنم. و همینطور در مورد مسائلی که برای ساختش سعی کردم رعایت کنم نکاتی رو بگم که شاید به درد کسی که برنامه نویس بازی هست بخوره. و در آخر در مورد جزئیات فنی (زبان برنامه نویسی، موتور بازیسازی و کتابخونه های استفاده شده) توضیح میدم.
+{{<image_link "https://play.google.com/store/apps/details?id=io.github.doorbash.solitaire" "google-play-badge.png" "io.github.doorbash.solitaire" 207 80>}}
 
-این بازی (Solitaire) یک بازی اندرویدی یک نفره با ورق (پاسور) هست که فعلا قابلیت های زیر رو داره:
+این بازی (Solitaire) یک بازی اندرویدی یک نفره با ورق (پاسور) هست که فعلا ویژگی های زیر رو داره:
 - حالت سه کارتی و تک کارتی
 - حرکت با لمس کارت
 - نمایش امتیاز و زمان
@@ -19,23 +19,17 @@ date: 2021-05-21
 - پشتیبانی از دو زبان فارسی و انگلیسی
 - امکان قطع و وصل کردن صدای بازی
 
-### بهره‌وری یا Performance
+### بهره‌وری یا performance
 
-یکی از مسائلی که خیلی برای توسعه بازی مهم هست همین بحث بهره وریه. ساده بخوام بگم هدف اینه که از منابعی که در اختیار داریم (مثل حافظه RAM یا پردازنده یا گرافیک) کمتر استفاده کنیم. بازی ای که روان اجرا میشه مسلما تجربه بهتری به کاربر میده. هیچ کس دوست نداره بازی گیر کنه، هنگ کنه یا زیاد از باتری گوشیش استفاده کنه.
+#### - فریم در ثانیه (fps)
 
-#### - فریم در ثانیه (FPS)
-
-برای اینکه fps رو بیاریم پایین باید تعداد draw call هامون تو هر فریم رو کم کنیم. کاری که کردم این بود که تمام تصاویر، آیکون ها و فونت هایی که تو بازی استفاده شده رو در قالب یک عکس 1024x1024 پک کردم. اینطوری فقط یک تکسچر بایند میشه و تعداد draw call ها میشه 1.
+ تمام تصاویر، آیکون ها و فونت هایی که تو بازی استفاده شده در قالب یک عکس 1024x1024 پک شده. که باعث میشه فقط یک تکسچر بایند بشه و تعداد draw call ها تو هر فریم میشه 1.
 
 #### - ذخیره و بازیابی از فایل
-حالت (State) فعلی بازی بعد از هر حرکت باید توی فایل نوشته میشد . و زمانی که کاربر دوباره وارد بازی میشد از فایل خونده میشد. 
-
-همینطور بازی های آسان قابل حل هم باید توی فایل ذخیره میشدن.
-
-اول میخاستم از JSON استفاده کنم ولی ازونجایی که JSON به صورت متنی هست بهتر بود از روشی که باینری ذخیره میکنه استفاده میکردم. برای همین {{<inline_link "https://github.com/protocolbuffers/protobuf" "protobuf">}} رو انتخاب کردم. کتابخونه دیگه ای که از لحاظ بهره وری توی بنچمارک هایی که دیدم از protobuf بهتر بود {{<inline_link "https://github.com/EsotericSoftware/kryo" "kryo">}} بود که اونم میتونست انتخاب خوبی باشه.
+برای پیاده سازی ذخیره و بازیابی بازی اول میخاستم از JSON استفاده کنم ولی ازونجایی که JSON به صورت متنی هست بهتر بود از روشی که باینری ذخیره میکنه استفاده میکردم. برای همین {{<inline_link "https://github.com/protocolbuffers/protobuf" "protobuf">}} رو انتخاب کردم. کتابخونه دیگه ای که از لحاظ بهره وری {{<inline_link "https://github.com/lxohi/java-json-protobuf-flatbuffers-kryo-jvm-benchmark" "توی بنچمارک هایی که دیدم">}} به protobuf نزدیکه {{<inline_link "https://github.com/EsotericSoftware/kryo" "kryo">}} بود که اونم میتونست انتخاب خوبی باشه.
 
 این مثلا نحوه ذخیره لیست بازی ها رو نشون میده:
-هر بازی 56 بایت فضا میگیره (52 کارت به اضافه کمی سربار که خود protobuf برای ذخیره ساختار اضافه میکنه)
+هر بازی 56 بایت فضا میگیره (52 کارت به اضافه 4 بایت سربار که خود protobuf برای ذخیره ساختار اضافه میکنه)
 
 ```plaintext
 message GamePB {
@@ -47,10 +41,28 @@ message GamesPB {
 }
 ```
 
-### حجم فایل نصبی
-هرچه حجم فایل نصبی که کاربر قراره دانلود کنه کمتر باشه احتمال اینکه بازی ما نصب بیشتری بگیره بیشتره. این بازی ساده هست و چون حجم نهایی زیر 15MB هست میشه از قابلیت instant apps گوگل پلی استفاده کرد که حجم کمتر یک مزیت محسوب میشه.
+#### - proguard
+تفاوت حجم فایل باندل نهایی بدون proguard و با proguard برای این پروژه یچیزی حدود 15MB بود. 
+غیر از اون میشه برای proguard قوانینی گذاشت که null check های اضافی کاتلین رو خودش خودکار حذف کنه که توی performance تاثیر داره.
 
- جدا از این برای ما که برای مارکت ایرانی هم جدا ریلیز میدیم این مساله مهمتر هم میشه. البته این چیزی که نیست که بخایم زیاد روش تمرکز کنیم ولی برای من (حداقل اولش) مهم بود که حجم بازی زیر یک مگابایت بشه (که آخرشم نشد!). 
+```plaintext
+-assumenosideeffects class kotlin.jvm.internal.Intrinsics {
+  public static void checkExpressionValueIsNotNull(java.lang.Object, java.lang.String);
+  public static void checkFieldIsNotNull(java.lang.Object, java.lang.String);
+  public static void checkFieldIsNotNull(java.lang.Object, java.lang.String, java.lang.String);
+  public static void checkNotNull(java.lang.Object);
+  public static void checkNotNull(java.lang.Object, java.lang.String);
+  public static void checkNotNullExpressionValue(java.lang.Object, java.lang.String);
+  public static void checkNotNullParameter(java.lang.Object, java.lang.String);
+  public static void checkParameterIsNotNull(java.lang.Object, java.lang.String);
+  public static void checkReturnedValueIsNotNull(java.lang.Object, java.lang.String);
+  public static void checkReturnedValueIsNotNull(java.lang.Object, java.lang.String, java.lang.String);
+  public static void throwUninitializedPropertyAccessException(java.lang.String);
+}
+```
+
+### حجم فایل نصبی
+از اونجایی که حجم فایل  نهایی زیر 15MB میشه. میتونیم از قابلیت Instant Play گوگل پلی استفاده کنیم. اینطوری یک دکمه Try now کنار دکمه نصب نشون میده که کاربر میتونه سریع بازی رو بدون نصب ببینه و بعد اگر خواست نصب کنه. به همین دلیل پایین بودن حجم یک مزیت محسوب میشه.
 
 با جدا کردن فایل .so هر معماری تو gradle و حذف فایل استایل libgdx و تعریف دستیشون تو کد و یه سری حذف های جزئی و proguard تونستم حجم فایل نهایی رو بیارم روی 750KB. 
 
@@ -58,12 +70,40 @@ message GamesPB {
 
 ![not great not terrible](https://media.giphy.com/media/B2l0NnxK9KiVa0CXBh/giphy.gif)
 
-### رابط کاربری
-من همیشه سعی میکنم کاری کنم کاربر تو کمترین زمان و راحت ترین شکل ممکن به کاری که میخاد تو بازی بکنه برسه. مثلا اگه دکمه تنظیمات توی منوی بازی باشه کاربر باید اول بره توی منوی بازی و بعد از اونجا بره تنظیمات. این میشه دو مرحله. به این فکر میکنم که آیا میشه یک مرحله اش کنیم؟ بله یک دکمه تنظیمات میذاریم گوشه بالا سمت راست.
+### پیاده سازی
 
-یا مثلا دکمه آندو برای حالت افقی میتونست بالا باشه ولی معمولا کاربری که داره با گوشی به صورت افقی کار میکنه داره یک دستی گوشی رو میگیره. پس بهتره بذاریمش پایین که به انگشت شصت نزدیک باشه.
+#### چالش ها
 
-### جزئیات فنی
+**ریزش کارت ها آخر بازی**:
+برای پیاده کردن این قسمت اول فکر کردم با پاک نکردن صفحه زمان draw میشه ولی باعث شد کارت ها جاهای اشتباهی ترسیم بشن و کلا عجیب غریب شد. که بعد فهمیدم بخاطر double buffering هست.
+
+بعدش کاری که کردم یک فریم بافر به اندازه صفحه ساختم. و زمان draw روی اون کارت ها رو draw کردم بدون اینکه پاکشون کنم. و بعد خود فریم بافر رو draw کردم.
+
+```kotlin
+val width = Gdx.graphics.width
+val height = Gdx.graphics.height
+fbo = FrameBuffer(Pixmap.Format.RGBA8888, width, height, false)
+matrix = Matrix4().apply {
+    setToOrtho2D(0f, height.toFloat(), width.toFloat(), -height.toFloat())
+}
+
+... 
+
+//draw
+
+fbo.use {
+  // draw on fbo
+}
+
+stage.batch.use(stage.camera.combined) {
+    // draw fbo
+    it.draw(fbo.colorBufferTexture, 0f, 0f)
+}
+```
+
+{{<image src="solitaire_card_trail.jpg" alt="card trail">}}
+
+#### جزئیات فنی
 بازی با استفاده از {{<inline_link "https://libgdx.com/" "LibGDX">}} ساخته شده و با زبان برنامه نویسی {{<inline_link "https://kotlinlang.org/" "کاتلین">}} (و کمی هم جاوا)
 
 برای شروع ساخت پروژه از {{<inline_link "https://github.com/tommyettinger/gdx-liftoff" "gdx-liftoff">}}
