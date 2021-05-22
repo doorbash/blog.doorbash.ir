@@ -19,6 +19,31 @@ date: 2021-05-21
 - پشتیبانی از دو زبان فارسی و انگلیسی
 - امکان قطع و وصل کردن صدای بازی
 
+{{<image src="solitaire_screenshot_1.jpg" alt="solitaire screenshot">}}
+{{<image src="solitaire_screenshot_2.jpg" alt="solitaire screenshot">}}
+
+### فریمورک ها و کتابخانه ها
+بازی با استفاده از {{<inline_link "https://libgdx.com/" "LibGDX">}} ساخته شده و با زبان برنامه نویسی {{<inline_link "https://kotlinlang.org/" "کاتلین">}} (و کمی هم جاوا)
+
+برای شروع ساخت پروژه از {{<inline_link "https://github.com/tommyettinger/gdx-liftoff" "gdx-liftoff">}}
+
+برای گیم پلی و منو ها از {{<inline_link "https://github.com/libgdx/libgdx/wiki/Scene2d" "Scene2D">}} که برای LibGDX هست. 
+
+از {{<inline_link "https://github.com/libktx/ktx" "LibKTX">}} برای کار کردن راحت تر با LibGDX
+
+برای پک کردن عکس ها و فونت ها از {{<inline_link "https://github.com/raeleus/skin-composer" "Skin Composer">}}
+
+برای ذخیره و بازیابی استیت بازی و همینطور بازیابی لیست بازی های آسان از {{<inline_link "https://github.com/protocolbuffers/protobuf" "protobuf">}}
+
+ منوهای بازی (و دکمه ها و switch و spinner) هم ویجت کاستوم هستن که از  floatingGroup از کتابخونه {{<inline_link "https://github.com/kotcrab/vis-ui" "vis-ui">}} ارث بری میکنند. البته فقط دیالوگ منو، تنظیمات و خروج از بازی.
+برای ساخت دیالوگ "بازی های قبلی" و "شما برنده شدید" از Dialog اندروید SDK استفاده شده. 
+
+تم کل برنامه هم Theme.MaterialComponents.NoActionBar هست. 
+
+از کتابخونه {{<inline_link "https://github.com/marlonlom/timeago" "timeago">}} برای نمایش تاریخ به صورت نسبی (مثلا دو ساعت پیش)
+
+آیکون ها هم {{<inline_link "https://github.com/google/material-design-icons" "آیکون های متریال دیزاین">}} گوگل هستن
+
 ### بهره‌وری یا performance
 
 #### - فریم در ثانیه (fps)
@@ -70,9 +95,7 @@ message GamesPB {
 
 ![not great not terrible](https://media.giphy.com/media/B2l0NnxK9KiVa0CXBh/giphy.gif)
 
-### پیاده سازی
-
-#### چالش ها
+### چالش ها
 
 **ریزش کارت ها آخر بازی**:
 برای پیاده کردن این قسمت اول فکر کردم با پاک نکردن صفحه زمان draw میشه ولی باعث شد کارت ها جاهای اشتباهی ترسیم بشن و کلا عجیب غریب شد. که بعد فهمیدم بخاطر double buffering هست.
@@ -102,25 +125,3 @@ stage.batch.use(stage.camera.combined) {
 ```
 
 {{<image src="solitaire_card_trail.jpg" alt="card trail">}}
-
-#### جزئیات فنی
-بازی با استفاده از {{<inline_link "https://libgdx.com/" "LibGDX">}} ساخته شده و با زبان برنامه نویسی {{<inline_link "https://kotlinlang.org/" "کاتلین">}} (و کمی هم جاوا)
-
-برای شروع ساخت پروژه از {{<inline_link "https://github.com/tommyettinger/gdx-liftoff" "gdx-liftoff">}}
-
-برای گیم پلی و منو ها از {{<inline_link "https://github.com/libgdx/libgdx/wiki/Scene2d" "Scene2D">}} که برای LibGDX هست. 
-
-از {{<inline_link "https://github.com/libktx/ktx" "LibKTX">}} برای کار کردن راحت تر با LibGDX
-
-برای پک کردن عکس ها و فونت ها از {{<inline_link "https://github.com/raeleus/skin-composer" "Skin Composer">}}
-
-برای ذخیره و بازیابی استیت بازی و همینطور بازیابی لیست بازی های آسان از {{<inline_link "https://github.com/protocolbuffers/protobuf" "protobuf">}}
-
- منوهای بازی (و دکمه ها و switch و spinner) هم ویجت کاستوم هستن که از  floatingGroup از کتابخونه {{<inline_link "https://github.com/kotcrab/vis-ui" "vis-ui">}} ارث بری میکنند. البته فقط دیالوگ منو، تنظیمات و خروج از بازی.
-برای ساخت دیالوگ "بازی های قبلی" و "شما برنده شدید" از Dialog اندروید SDK استفاده شده. 
-
-تم کل برنامه هم Theme.MaterialComponents.NoActionBar هست. 
-
-از کتابخونه {{<inline_link "https://github.com/marlonlom/timeago" "timeago">}} برای نمایش تاریخ به صورت نسبی (مثلا دو ساعت پیش)
-
-آیکون ها هم {{<inline_link "https://github.com/google/material-design-icons" "آیکون های متریال دیزاین">}} گوگل هستن
