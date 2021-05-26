@@ -2,10 +2,11 @@
 layout: post
 title: "پروژه جدید: بازی Solitaire Klondike"
 img: solitaire.jpg
-date: 2021-05-21
+date: 2021-05-22
 ---
 
-{{<image_link "https://cafebazaar.ir/app/io.github.doorbash.solitaire" "cafebazaar-badge.png" "Download from CafeBazaar" 201 60>}}
+{{<image_link "https://cafebazaar.ir/app/io.github.doorbash.solitaire" "cafebazaar-badge.png" "Download from CafeBazaar" 202 60>}}
+{{<image_link "https://myket.ir/app/io.github.doorbash.solitaire" "myket-badge.png" "Download from Myket" 202 60>}}
 {{<image_link "https://play.google.com/store/apps/details?id=io.github.doorbash.solitaire" "google-play-badge.png" "Download from Google Play" 201 60>}}
 
 این بازی (Solitaire) یک بازی اندرویدی یک نفره با ورق (پاسور) هست که فعلا ویژگی های زیر رو داره:
