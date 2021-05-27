@@ -29,7 +29,7 @@ date: 2021-05-22
 
 برای شروع ساخت پروژه از {{<inline_link "https://github.com/tommyettinger/gdx-liftoff" "gdx-liftoff">}}
 
-برای گیم پلی و منو ها از {{<inline_link "https://github.com/libgdx/libgdx/wiki/Scene2d" "Scene2D">}} که برای LibGDX هست. 
+برای گیم پلی و منو ها از {{<inline_link "https://github.com/libgdx/libgdx/wiki/Scene2d" "Scene2D">}} که متعلق به LibGDX هست. 
 
 از {{<inline_link "https://github.com/libktx/ktx" "LibKTX">}} برای کار کردن راحت تر با LibGDX
 
